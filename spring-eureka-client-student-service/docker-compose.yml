@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+  student-service-image:
+    build: .
+    container_name: student-service
+    ports:
+      - 8092:8092
+    depends_on:
+      - mongodb

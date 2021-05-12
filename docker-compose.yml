@@ -1,0 +1,32 @@
+version: "3.8"
+services:
+  eureka-server:
+    build: spring-eureka-server/
+    restart: on-failure
+    container_name: "spring-eureka-server"
+    ports:
+    - 8761:8761
+  employee-service:
+    build: spring-eureka-client-employee-service/
+    restart: on-failure
+    container_name: "spring-employee-service"
+    ports:
+    - 8093:8093
+    depends_on:
+      - mongodb
+      - eureka-server
+  student-service:
+    build: spring-eureka-client-student-service/
+    restart: on-failure
+    container_name: "spring-student-service"
+    ports:
+    - 8092:8092
+    depends_on:
+      - mongodb
+      - eureka-server
+  mongodb:
+    image: mongo:latest
+    restart: on-failure
+    container_name: "mongo-db-service"
+    ports:
+      - 27017:27017

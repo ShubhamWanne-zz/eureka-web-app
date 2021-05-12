@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: "mongodb-service"
+    ports:
+    - 27017:27017
+  employee-service:
+    build: .
+    container_name: "employee-service"
+    ports:
+    - 8093:8093
+    depends_on:
+      - mongodb
