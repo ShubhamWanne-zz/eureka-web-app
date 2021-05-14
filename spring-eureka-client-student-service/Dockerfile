@@ -5,8 +5,9 @@ ENV ENV_NAME "local"
 ENV SERVER_PORT 8092
 ENV BOOTAPP_JAVA_OPTS -Xms512m -Xmx512M
 ENV LOG_PATH "/logs"
-
-ENV BOOTAPP_USR="root" BOOTAPP_GROUP="root" BOOTAPP_PATH="/spring-eureka-client-student-service-0.0.1-SNAPSHOT.jar"
+ENV BOOTAPP_USR="root"
+ENV BOOTAPP_GROUP="root"
+ENV BOOTAPP_PATH="/spring-eureka-client-student-service-0.0.1-SNAPSHOT.jar"
 
 COPY custom_app.sh /custom_app.sh
 RUN chmod 555 /custom_app.sh

@@ -5,8 +5,9 @@ ENV ENV_NAME "local"
 ENV SERVER_PORT 8093
 ENV BOOTAPP_JAVA_OPTS -Xms512m -Xmx512M
 ENV LOG_PATH "/logs"
-
-ENV BOOTAPP_USR="root" BOOTAPP_GROUP="root" BOOTAPP_PATH="/spring-eureka-client-student-service-0.0.1-SNAPSHOT.jar"
+ENV BOOTAPP_USR="root"
+ENV BOOTAPP_GROUP="root"
+ENV BOOTAPP_PATH="/spring-eureka-client-student-service-0.0.1-SNAPSHOT.jar"
 
 COPY src/main/resources/employee.csv src/main/resources/employee.csv
 
